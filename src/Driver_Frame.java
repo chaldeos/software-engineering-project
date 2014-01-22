@@ -15,6 +15,7 @@ import java.io.*;
 
 public class Driver_Frame extends JFrame {
 
+	private static final long serialVersionUID = 4522486003277656723L;
 	private JPanel contentPane;
 
 	//EventQueue.invokeLater(new Runnable(){

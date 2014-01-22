@@ -31,7 +31,7 @@ public class Database {
     	
 	}
     
-    // Inserts a new recored in a database table
+    // Inserts a new record in a database table
     public void insertToDatabase(String table, String fields, String values) throws DBIOException {
     	PreparedStatement preparedStatement = null;
     	String query;
