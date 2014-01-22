@@ -3,11 +3,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.sql.Types;
 
 public class Database {
 	private Connection conn = null;
 	private ResultSet resultSet = null;
 	
+	// Connects to database and sets the conn property
     public void mysqlConnect() {
 
     	try {
@@ -19,7 +21,7 @@ public class Database {
     		}
     		
     		// Connect to Database
-    		conn = DriverManager.getConnection("jdbc:mysql://localhost/shoft-eng-proj?" + "user=Manolis&password=qwe/789");
+    		conn = DriverManager.getConnection("jdbc:mysql://localhost/shoft-eng-proj?" + "user=root&password=");
 
     	} catch (SQLException e) {
     		System.out.println("SQLException: " + e.getMessage());
@@ -29,6 +31,7 @@ public class Database {
     	
 	}
     
+    // Inserts a new recored in a database table
     public void insertToDatabase(String table, String fields, String values) throws DBIOException {
     	PreparedStatement preparedStatement = null;
     	String query;
@@ -75,6 +78,48 @@ public class Database {
     	
     }
     
+    // Updated a value of a field in a database table and returns the number of the affected rows
+    public int updateDatabase(String table, String field, String value, String condition) throws DBIOException {
+    	PreparedStatement preparedStatement = null;
+    	String query;
+    	int affectedRows = 0;
+    	
+    	if (table == null || table.isEmpty() || field == null || field.isEmpty() || value == null || value.isEmpty() || condition == null || condition.isEmpty()) {
+    		throw new DBIOException("One or more arguments are empty");
+    	}
+    	
+    	// Construct Query
+    	query = "UPDATE " + table + " SET " + field + "=? WHERE " + condition;
+    	
+    	// Prepare the SQL Statement
+    	try {
+			preparedStatement = conn.prepareStatement(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	
+    	try {
+    		if (value == "NULL") {
+    			preparedStatement.setNull(1, Types.NULL);
+    		}
+    		else {
+    			preparedStatement.setString(1, value);
+    		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	
+    	// Execute
+    	try {
+    		affectedRows = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	
+		return affectedRows;
+    }
+    
+    // Fetches all specified fields from a database table
     public String[][] fetchFromDatabase(String table, String fields, String condition) throws DBIOException {
     	PreparedStatement preparedStatement = null;
     	String query;
