@@ -51,12 +51,12 @@ public class Database {
     	query += "?)";
     	
     	
+    	// Prepare the SQL Statement
     	try {
 			preparedStatement = conn.prepareStatement(query);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-    	
     	
     	valuesArray = values.split(",");
     	
@@ -68,13 +68,13 @@ public class Database {
 			}
     	}
     	
+    	// Execute
     	try {
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
     	
-    	// Execute
     	return 0;
     }
     
