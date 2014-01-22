@@ -3,7 +3,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
 
 public class Database {
 	private Connection conn = null;
@@ -20,7 +19,7 @@ public class Database {
     		}
     		
     		// Connect to Database
-    		conn = DriverManager.getConnection("jdbc:mysql://localhost/shoft-eng-proj?" + "user=root&password=");
+    		conn = DriverManager.getConnection("jdbc:mysql://localhost/shoft-eng-proj?" + "user=Manolis&password=qwe/789");
 
     	} catch (SQLException e) {
     		System.out.println("SQLException: " + e.getMessage());
@@ -112,9 +111,13 @@ public class Database {
 		}
     	
     	// Check if table is empty
-    	if (resultSet == null) {
-			throw new DBIOException("Table " + table + " is empty");
-	    }
+    	try {
+			if (!resultSet.isBeforeFirst()) {
+				throw new DBIOException("Query returned no results");
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 		
     	// Fetch result
 		try {
