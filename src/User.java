@@ -9,7 +9,7 @@ abstract public class User {
 	public User(String username, String password){
 		String data[][] = null;
 		try {
-			data = RegisterLogin.login("odigos","12345678");
+			data = RegisterLogin.login("nick","1234");
 		} catch (RegisterLoginException e) {
 			e.printStackTrace();
 		}
