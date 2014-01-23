@@ -5,7 +5,7 @@ import java.util.Calendar;
 public class Main {
 
 	public static void main(String[] args) {
-		String[][] res;
+		/*String[][] res;
 		Database db = new Database();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar cal = Calendar.getInstance();
@@ -38,7 +38,7 @@ public class Main {
 			}
 		} catch (DBIOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }
