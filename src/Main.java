@@ -5,6 +5,21 @@ import java.util.Calendar;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		try {
+			String[][] res = RegisterLogin.login("nick", "1234");
+			
+			for (int i = 0; i < res.length; ++i) {
+				for (int j = 0; j < res[i].length; ++j) {
+					System.out.print(res[i][j] + ";");
+				}
+				System.out.println();
+			}
+			
+		} catch (RegisterLoginException e) {
+			e.printStackTrace();
+		}
+		
 		/*String[][] res;
 		Database db = new Database();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

@@ -158,7 +158,7 @@ public class Database {
     	// Check if table is empty
     	try {
 			if (!resultSet.isBeforeFirst()) {
-				throw new DBIOException("Query returned no results");
+				return null;
 			}
 		} catch (SQLException e1) {
 			e1.printStackTrace();
