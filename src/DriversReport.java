@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import java.awt.Window;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
@@ -10,6 +11,8 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import javax.swing.DropMode;
 
 
 public class DriversReport extends JFrame {
@@ -18,6 +21,7 @@ public class DriversReport extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
+	private JButton button;
 
 	
 
@@ -44,20 +48,34 @@ public class DriversReport extends JFrame {
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
+		textField.setHorizontalAlignment(SwingConstants.LEFT);
 		textField.setBounds(10, 11, 414, 192);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btSubmit = new JButton("\u0391\u03C0\u03BF\u03C3\u03C4\u03BF\u03BB\u03AE");
+		JButton btSubmit = new JButton("Αποστολή");
 		btSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//send report
-				//ok
+				String textFieldValue = textField.getText().trim();
+				System.out.println(textFieldValue);
+				JOptionPane.showMessageDialog(
+						null, "Η δήλωση σας εστάλει. ","Title", JOptionPane.PLAIN_MESSAGE);
+
 				CloseFrame();
 			}
 		});
-		btSubmit.setBounds(139, 214, 154, 37);
+		btSubmit.setBounds(20, 214, 154, 37);
 		contentPane.add(btSubmit);
+		
+		button = new JButton("Ακύρωση");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CloseFrame();
+			}
+		});
+		button.setBounds(257, 214, 154, 37);
+		contentPane.add(button);
 		
 	}
 
@@ -65,4 +83,8 @@ public class DriversReport extends JFrame {
 	    super.dispose();
 	}
 
+	public JTextField getTextField() {
+		System.out.println(textField);
+		return textField;
+	}
 }
