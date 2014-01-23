@@ -30,7 +30,7 @@ public class RegisterLogin {
 		
 		// Check if username - password hash combination exists
 		try {
-			res = db.fetchFromDatabase("users", "username, password, firstname, surname, tin, address, phone, sex, type", "username='" + username + "' AND password='" + password + "'");
+			res = db.fetchFromDatabase("users", "uid, username, password, firstname, surname, tin, address, phone, sex, type", "username='" + username + "' AND password='" + password + "'");
 			if (res == null) {
 				throw new RegisterLoginException("Wrong username or password");
 			}
