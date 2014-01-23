@@ -1,11 +1,23 @@
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.io.*;
+//import java.text.DateFormat;
 
-public class Main {
+public class Main extends JFrame {
 
+
+	private static final long serialVersionUID = 1L;
+
+	
 	public static void main(String[] args) {
-		String errorMsg;
+		
+	
+		LoginFrame window = new LoginFrame();
+		window.setTitle("Είσοδος χρήστη");
+		window.setVisible(true);
+		
+/*String errorMsg;
 		
 		try {
 			errorMsg = RegisterLogin.register("aaaa", "aaaaaa", "aaa", "aaa", "123456789", "aaa", "1234567890", 0, 0);
@@ -14,7 +26,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		/*
+		
 		// Login example
 		try {
 			String[][] res = RegisterLogin.login("nick", "1234");
@@ -63,7 +75,7 @@ public class Main {
 			}
 		} catch (DBIOException e) {
 			e.printStackTrace();
-		}*/
+		}*/	
 	}
 
 }
