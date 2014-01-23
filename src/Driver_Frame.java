@@ -48,7 +48,7 @@ public class Driver_Frame extends JFrame {
 			}
 		}
 	
-	Driver driver = new Driver(1, "odhgos", "121", "Nikos","Nikolaou","342322342","Str. Park 32","123456789", 0, 1);
+	//Driver driver = new Driver("odhgos", "121");
 	public Driver_Frame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -57,42 +57,37 @@ public class Driver_Frame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnLogOut = new JButton("\u0391\u03C0\u03BF\u03C3\u03CD\u03BD\u03B4\u03B5\u03C3\u03B7");
+		JButton btnLogOut = new JButton("Αποσύνδεση");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//goes back to login page
 			}
 		});
-		btnLogOut.setBounds(310, 11, 114, 23);
+		btnLogOut.setBounds(292, 11, 132, 40);
 		contentPane.add(btnLogOut);
 		
 		JLabel lbNumberplane = new JLabel("Numberplate");
 		lbNumberplane.setHorizontalAlignment(SwingConstants.CENTER);
-		lbNumberplane.setBounds(32, 51, 103, 34);
+		lbNumberplane.setBounds(32, 83, 103, 34);
 		contentPane.add(lbNumberplane);
 		
-		JLabel lblDriversname = new JLabel(driver.surname);
+		JLabel lblDriversname = new JLabel("sth");
 		lblDriversname.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDriversname.setBounds(166, 51, 103, 34);
+		lblDriversname.setBounds(166, 83, 103, 34);
 		contentPane.add(lblDriversname);
 		
-		JButton btInfo = new JButton("\u03A0\u03BB\u03B7\u03C1\u03BF\u03C6\u03BF\u03C1\u03AF\u03B5\u03C2");
-		btInfo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				//shows info in a pop up window
-			}
-		});
-		btInfo.setBounds(10, 175, 114, 76);
-		contentPane.add(btInfo);
-		
-		JButton btReport = new JButton("\u0394\u03AE\u03BB\u03C9\u03C3\u03B7 \u0392\u03BB\u03AC\u03B2\u03B7\u03C2");
+		JButton btReport = new JButton("Δήλωση Βλάβης");
 		btReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DriversReport window = new DriversReport();
 				window.setVisible(true);
 			}
 		});
-		btReport.setBounds(191, 175, 156, 76);
+		btReport.setBounds(268, 175, 156, 76);
 		contentPane.add(btReport);
+		
+		JLabel lbInfo = new JLabel("Τηλ. Κεντρικά 2107777777");
+		lbInfo.setBounds(32, 211, 170, 40);
+		contentPane.add(lbInfo);
 	}
 }
