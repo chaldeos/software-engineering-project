@@ -5,7 +5,17 @@ import java.util.Calendar;
 public class Main {
 
 	public static void main(String[] args) {
+		String errorMsg;
 		
+		try {
+			errorMsg = RegisterLogin.register("aaaa", "aaaaaa", "aaa", "aaa", "123456789", "aaa", "1234567890", 0, 0);
+			System.out.println(errorMsg);
+		} catch (RegisterLoginException e) {
+			e.printStackTrace();
+		}
+		
+		/*
+		// Login example
 		try {
 			String[][] res = RegisterLogin.login("nick", "1234");
 			
@@ -20,7 +30,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		/*String[][] res;
+		String[][] res;
 		Database db = new Database();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar cal = Calendar.getInstance();

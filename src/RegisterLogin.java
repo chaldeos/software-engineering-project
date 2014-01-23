@@ -2,6 +2,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Security;
+
 import org.apache.commons.codec.binary.Hex;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
@@ -9,6 +10,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 public class RegisterLogin {
 	private static String salt = "5jgDZ4AoVK6IBbKeKUPR"; // It is strongly recommended to change before installation
 	
+	// Logins a user to the system
 	public static String[][] login (String username, String password) throws RegisterLoginException {
 		String[][] res = null;
 		
@@ -39,11 +41,41 @@ public class RegisterLogin {
 		return res;
 	}
 	
-	public static void register (String username, String password, String firstname, String surname, String tin, String address, String phone, int sex, int type) {
+	// Registers a user to the system
+	public static String register (String username, String password, String firstname, String surname, String tin, String address, String phone, int sex, int type) throws RegisterLoginException {
+		String[] errors = new String[9];
+		String errorMsg = "";
 		
+		// Validate submitted fields
+		errors[0] = Validation.validateUsername(username);
+		errors[1] = Validation.validatePassword(password);
+		errors[2] = Validation.validateFirstname(firstname);
+		errors[3] = Validation.validateSurname(surname);
+		errors[4] = Validation.validateTin(tin);
+		errors[5] = Validation.validateAddress(address);
+		errors[6] = Validation.validatePhone(phone);
+		errors[7] = Validation.validateSex(sex);
+		errors[8] = Validation.validateType(type);
+    	
+		for (int i = 0; i < 9; ++i) {
+			if (errors[i] != null) {
+				errorMsg += errors[i] + "\n";
+			}
+		}
 		
+		if (errorMsg == "") { // If no errors then register the user
+			Database db = new Database();
+			db.mysqlConnect();
+			try {
+				db.insertToDatabase("users", "username, password, firstname, surname, tin, address, phone, sex, type", username + "," + password + "," + firstname + "," + surname + "," + tin + "," + address + "," + phone + "," + sex + "," + type);
+			} catch (DBIOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return errorMsg;
 	}
-	
+
 	// Generates the salted SHA-512 hash of a password
 	private static String passwordHashGen (String password) {
 		byte[] hash = null;
