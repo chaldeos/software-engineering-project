@@ -66,7 +66,7 @@ public class RegisterLogin {
 			Database db = new Database();
 			db.mysqlConnect();
 			try {
-				password = passwordHashGen("password");
+				password = passwordHashGen(password);
 				db.insertToDatabase("users", "username, password, firstname, surname, tin, address, phone, sex, type", username + "," + password + "," + firstname + "," + surname + "," + tin + "," + address + "," + phone + "," + sex + "," + type);
 			} catch (DBIOException e) {
 				e.printStackTrace();

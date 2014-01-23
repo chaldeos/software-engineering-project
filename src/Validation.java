@@ -104,6 +104,17 @@ public class Validation {
 		return null;
 	}
 	
+	public static String validateReport (String data) {
+		if (data == null || data.isEmpty()) {
+			return "The report cannot be empty";
+		}
+		else if (data.length() > 65535) {
+			return "Report must not be more than 65535 characters";
+		}
+
+		return null;
+	}
+	
 	public static String validateType (int data) {
 		if (data != 0 && data != 1 && data != 2) {
 			return "Invalid user type value";
