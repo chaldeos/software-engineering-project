@@ -15,9 +15,29 @@ import java.io.*;
 
 public class Driver_Frame extends JFrame {
 
-	private static final long serialVersionUID = 4522486003277656723L;
+	
+	private static final long serialVersionUID = 1L;
+	 
 	private JPanel contentPane;
 
+	/**
+	 * Launch the application.
+	 
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Driver_Frame frame = new Driver_Frame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	 * Create the frame.
+	 */
 	//EventQueue.invokeLater(new Runnable(){
 		public void run() {
 			try {
@@ -40,12 +60,13 @@ public class Driver_Frame extends JFrame {
 		JButton btnLogOut = new JButton("\u0391\u03C0\u03BF\u03C3\u03CD\u03BD\u03B4\u03B5\u03C3\u03B7");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//goes back to login page
 			}
 		});
 		btnLogOut.setBounds(310, 11, 114, 23);
 		contentPane.add(btnLogOut);
 		
-		JLabel lbNumberplane = new JLabel("Numberplane");
+		JLabel lbNumberplane = new JLabel("Numberplate");
 		lbNumberplane.setHorizontalAlignment(SwingConstants.CENTER);
 		lbNumberplane.setBounds(32, 51, 103, 34);
 		contentPane.add(lbNumberplane);
@@ -58,17 +79,20 @@ public class Driver_Frame extends JFrame {
 		JButton btInfo = new JButton("\u03A0\u03BB\u03B7\u03C1\u03BF\u03C6\u03BF\u03C1\u03AF\u03B5\u03C2");
 		btInfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//shows info in a pop up window
 			}
 		});
 		btInfo.setBounds(10, 175, 114, 76);
 		contentPane.add(btInfo);
 		
-		JButton btnNewButton = new JButton("\u0394\u03AE\u03BB\u03C9\u03C3\u03B7 \u0392\u03BB\u03AC\u03B2\u03B7\u03C2");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btReport = new JButton("\u0394\u03AE\u03BB\u03C9\u03C3\u03B7 \u0392\u03BB\u03AC\u03B2\u03B7\u03C2");
+		btReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				DriversReport window = new DriversReport();
+				window.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(191, 175, 156, 76);
-		contentPane.add(btnNewButton);
+		btReport.setBounds(191, 175, 156, 76);
+		contentPane.add(btReport);
 	}
 }
