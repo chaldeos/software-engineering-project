@@ -2,21 +2,27 @@
 abstract public class User {
 
 	
-	int uid, sex, type;
-	String username, password, firstname, surname, tin, adress, phone;
+	protected int uid, sex, type;
+	protected String username, password, firstname, surname, tin, adress, phone;
 	
 	
-	public User(int uid, String username, String password, String firstname, String surname,String tin, String adress, String phone, int sex, int type){
-		this.uid = uid;
-		this.username = username;
-		this.password = password;
-		this.firstname = firstname;
-		this.surname = surname;
-		this.tin = tin;
-		this.adress = adress;
-		this.phone = phone;
-		this.sex = sex;
-		this.type = type;
+	public User(String username, String password){
+		String data[][] = null;
+		try {
+			data = RegisterLogin.login("odigos","12345678");
+		} catch (RegisterLoginException e) {
+			e.printStackTrace();
+		}
+		this.uid = Integer.parseInt(data[0][0]);
+		this.username =data[0][1];
+		this.password = data[0][2];
+		this.firstname = data[0][3];
+		this.surname = data[0][4];
+		this.tin = data[0][5];
+		this.adress = data[0][6];
+		this.phone = data[0][7];
+		this.sex = Integer.parseInt(data[0][8]);
+		this.type = Integer.parseInt(data[0][9]);
 		
 	}
 
