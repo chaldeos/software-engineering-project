@@ -35,9 +35,6 @@ public class ManagerEmployeesWnd extends JFrame {
 		}
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public ManagerEmployeesWnd(final Manager manager) {
 		this.manager = manager;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

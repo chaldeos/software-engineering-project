@@ -55,7 +55,7 @@ public class BusInfo extends JFrame {
 				CloseFrame();
 				// LoginManager
 				LoginFrameManager window = new LoginFrameManager();
-				window.setTitle("Είσοδος χρήστη");
+				window.setTitle("Log in");
 				window.setVisible(true);
 			}
 		});

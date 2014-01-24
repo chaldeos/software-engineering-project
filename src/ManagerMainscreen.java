@@ -24,10 +24,7 @@ public class ManagerMainscreen extends JFrame {
 			e.printStackTrace();
 		}
 	}
-	
-	/**
-	 * Create the frame.
-	 */
+
 	public ManagerMainscreen(final Manager manager) {
 		this.manager=manager;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,7 +43,7 @@ public class ManagerMainscreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
 				ManagerBusesWnd window = new ManagerBusesWnd(manager); 
-				window.setTitle("Οχήματα");
+				window.setTitle("Buses");
 				window.setVisible(true);
 			}
 		});
@@ -59,7 +56,7 @@ public class ManagerMainscreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
 				ManagerEmployeesWnd window = new ManagerEmployeesWnd(manager); 
-				window.setTitle("Υπάλληλοι");
+				window.setTitle("Employees");
 				window.setVisible(true);
 			}
 		});
@@ -73,7 +70,7 @@ public class ManagerMainscreen extends JFrame {
 				CloseFrame();
 				// LoginManager
 				LoginFrameManager window = new LoginFrameManager();
-				window.setTitle("Είσοδος χρήστη");
+				window.setTitle("Log in");
 				window.setVisible(true);
 			}
 		});

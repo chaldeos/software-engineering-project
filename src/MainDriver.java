@@ -2,7 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
-//import java.text.DateFormat;
 
 public class MainDriver extends JFrame {
 
@@ -11,9 +10,7 @@ public class MainDriver extends JFrame {
 	public static void main(String[] args) {
 		
 		LoginFrameDriver window = new LoginFrameDriver();
-		window.setTitle("Είσοδος χρήστη");
+		window.setTitle("Log in");
 		window.setVisible(true);
-		
 	}
-
 }

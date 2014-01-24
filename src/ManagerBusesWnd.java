@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 public class ManagerBusesWnd extends JFrame {
 
 	private JPanel contentPane;
@@ -19,9 +18,6 @@ public class ManagerBusesWnd extends JFrame {
 	private JButton button;
 	private Manager manager;
 	private String arg[][];
-	/**
-	 * Launch the application.
-	 */
 
 	public void run() {
 		try {
@@ -32,9 +28,6 @@ public class ManagerBusesWnd extends JFrame {
 		}
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public ManagerBusesWnd(final Manager manager) {
 		this.manager = manager;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

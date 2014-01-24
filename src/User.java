@@ -11,7 +11,6 @@ abstract public class User {
 	public User(String username, String password) throws RegisterLoginException{
 		String data[][] = null;
 		
-
 		data = RegisterLogin.login(username,password);
 
 		this.uid = Integer.parseInt(data[0][0]);

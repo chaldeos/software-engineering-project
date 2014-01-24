@@ -61,7 +61,7 @@ public class DriversReport extends JFrame {
 				
 				try {
 					driver.insertReport(textField.getText().trim());
-					JOptionPane.showMessageDialog(null, "Η δήλωση σας εστάλει.","Title", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Your report has been submited.","Title", JOptionPane.PLAIN_MESSAGE);
 					CloseFrame();
 				} catch (DBIOException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage(), "Title", JOptionPane.PLAIN_MESSAGE);
@@ -73,7 +73,7 @@ public class DriversReport extends JFrame {
 		btSubmit.setBounds(20, 214, 154, 37);
 		contentPane.add(btSubmit);
 		
-		button = new JButton("Ακύρωση");
+		button = new JButton("Cancel");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				CloseFrame();

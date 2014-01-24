@@ -10,9 +10,6 @@ public class ManagerDriverWnd extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -26,9 +23,6 @@ public class ManagerDriverWnd extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public ManagerDriverWnd() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -37,5 +31,4 @@ public class ManagerDriverWnd extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 	}
-
 }
