@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 
 abstract public class User {
 
@@ -9,9 +11,9 @@ abstract public class User {
 	public User(String username, String password){
 		String data[][] = null;
 		try {
-			data = RegisterLogin.login("nick","1234");
+			data = RegisterLogin.login(username,password);
 		} catch (RegisterLoginException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage(),"׃צÜכלב", JOptionPane.PLAIN_MESSAGE);
 		}
 		this.uid = Integer.parseInt(data[0][0]);
 		this.username =data[0][1];

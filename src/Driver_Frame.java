@@ -19,6 +19,12 @@ public class Driver_Frame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	 
 	private JPanel contentPane;
+	
+	private JButton reportButton;
+	
+	private JLabel nplate;
+	
+	private JLabel user;
 
 	/**
 	 * Launch the application.
@@ -50,6 +56,9 @@ public class Driver_Frame extends JFrame {
 	
 	//Driver driver = new Driver("odhgos", "121");
 	public Driver_Frame() {
+		
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -60,26 +69,35 @@ public class Driver_Frame extends JFrame {
 		JButton btnLogOut = new JButton("Αποσύνδεση");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//goes back to login page
+				CloseFrame();
+				LoginFrame window = new LoginFrame();
+				window.setTitle("Είσοδος χρήστη");
+				window.setVisible(true);
 			}
 		});
 		btnLogOut.setBounds(292, 11, 132, 40);
 		contentPane.add(btnLogOut);
 		
 		JLabel lbNumberplane = new JLabel("Numberplate");
+		this.nplate = lbNumberplane;
+		
 		lbNumberplane.setHorizontalAlignment(SwingConstants.CENTER);
 		lbNumberplane.setBounds(32, 83, 103, 34);
 		contentPane.add(lbNumberplane);
 		
-		JLabel lblDriversname = new JLabel("sth");
+		JLabel lblDriversname = new JLabel("Name");
+		this.user = lblDriversname;
 		lblDriversname.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDriversname.setBounds(166, 83, 103, 34);
 		contentPane.add(lblDriversname);
 		
 		JButton btReport = new JButton("Δήλωση Βλάβης");
+		this.reportButton = btReport;
+		//btReport.setEnabled(false);
 		btReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DriversReport window = new DriversReport();
+				window.setTitle("Δήλωση Βλάβης");
 				window.setVisible(true);
 			}
 		});
@@ -89,5 +107,24 @@ public class Driver_Frame extends JFrame {
 		JLabel lbInfo = new JLabel("Τηλ. Κεντρικά 2107777777");
 		lbInfo.setBounds(32, 211, 170, 40);
 		contentPane.add(lbInfo);
+	}
+	
+	public void CloseFrame(){
+	    super.dispose();
+	}
+	
+	public JButton getReportButton(){
+		
+		return this.reportButton;
+	}
+	
+	public JLabel getNplate(){
+		
+		return this.nplate;
+	}
+	
+	public JLabel getUsername(){
+		
+		return this.user;
 	}
 }
