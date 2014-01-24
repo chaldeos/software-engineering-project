@@ -25,6 +25,8 @@ public class Driver_Frame extends JFrame {
 	private JLabel nplate;
 	
 	private JLabel user;
+	
+	private Driver driver;
 
 	/**
 	 * Launch the application.
@@ -47,7 +49,7 @@ public class Driver_Frame extends JFrame {
 	//EventQueue.invokeLater(new Runnable(){
 		public void run() {
 			try {
-				Driver_Frame frame = new Driver_Frame();
+				Driver_Frame frame = new Driver_Frame(driver);
 				frame.setVisible(true);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -55,9 +57,9 @@ public class Driver_Frame extends JFrame {
 		}
 	
 	//Driver driver = new Driver("odhgos", "121");
-	public Driver_Frame() {
+	public Driver_Frame(final Driver driver) {
 		
-		
+		this.driver = driver;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -96,9 +98,11 @@ public class Driver_Frame extends JFrame {
 		//btReport.setEnabled(false);
 		btReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DriversReport window = new DriversReport();
+				DriversReport window = new DriversReport(driver);
+				
 				window.setTitle("Δήλωση Βλάβης");
 				window.setVisible(true);
+				
 			}
 		});
 		btReport.setBounds(268, 175, 156, 76);

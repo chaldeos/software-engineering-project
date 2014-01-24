@@ -12,7 +12,7 @@ public class Main extends JFrame {
 	
 	public static void main(String[] args) {
 		
-	
+		
 		LoginFrame window = new LoginFrame();
 		window.setTitle("Είσοδος χρήστη");
 		window.setVisible(true);
@@ -25,7 +25,6 @@ public class Main extends JFrame {
 		} catch (RegisterLoginException e) {
 			e.printStackTrace();
 		}
-		
 		
 		// Login example
 		try {

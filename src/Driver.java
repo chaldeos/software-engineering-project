@@ -2,33 +2,35 @@ import javax.swing.JOptionPane;
 
 
 public class Driver extends User{
-	
-
-	public Driver(String username, String password) {
+	int bid = -1;
+	String numberplate = null;
+	public Driver(String username, String password) throws RegisterLoginException {
 		
 		super(username, password);
-		
-		
+	
 		if (type == 2){
 			
 			String bus_res[][] = null;
 			
-			Driver_Frame w = new Driver_Frame();
-			w.setTitle("Οδηγός");
-			w.setVisible(true);
-			//allign at center
-			w.getUsername().setText(username);
-			w.getReportButton().setEnabled(false);
 			//numberplate den exei anate8ei lewforeio
 			if ((bus_res = getDriversBus(uid)) != null){ //Create bus object
 				//appear numberplate
-				w.getReportButton().setEnabled(true);
-				w.getNplate().setText(bus_res[0][1]);
+				this.bid = Integer.parseInt(bus_res[0][0]);
+				this.numberplate = bus_res[0][1];
+				DriversReport dr = new DriversReport(this);
+				String text = dr.setDriversText();
+				//if (text!=null){
+				//	Report r = new Report(Integer.parseInt(bus_res[0][0]),uid, text);
+				//}
 			}
 		}
 		else{
-			JOptionPane.showMessageDialog(null, "Τα στοιχεία σας δεν είναι έγκυρα. ","Σφάλμα", JOptionPane.PLAIN_MESSAGE);
+			throw new RegisterLoginException("Τα στοιχεία σας δεν είναι έγκυρα.");
+			//JOptionPane.showMessageDialog(null, "Τα στοιχεία σας δεν είναι έγκυρα. ","Σφάλμα", JOptionPane.PLAIN_MESSAGE);
+			
 		}
+		
+		
 	}
 	//Validation.validateReport(String data)
 	
@@ -42,6 +44,7 @@ public class Driver extends User{
 			bus = db.fetchFromDatabase("busses_users","bid","uid=" + uid);
 			if (bus[0][0] != null){
 				bid = Integer.parseInt(bus[0][0]);
+				
 				bus = db.fetchFromDatabase("busses","bid, numberplate, cc, brand","bid=" + bid);
 				
 			}
@@ -52,5 +55,26 @@ public class Driver extends User{
 		return bus;
 	}
 	
+	public int getBid(){
+		return this.bid;
+	}
+	
+	public String getNumberPlate(){
+		return this.numberplate;
+	}
+	
+	public void insertReport(String text){
+
+		Database db = new Database();
+		db.mysqlConnect();
+		try {
+			//bus = db.fetchFromDatabase("busses_users","bid","uid=" + uid);
+			//if (bus[0][0] != null){
+				db.insertToDatabase("reports","bid,uid,report_txt",this.bid + "," + this.uid + "," +text);
+		} catch (DBIOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 }
