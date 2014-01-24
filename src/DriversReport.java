@@ -56,16 +56,19 @@ public class DriversReport extends JFrame {
 		
 		JButton btSubmit = new JButton("Αποστολή");
 		btSubmit.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
 				
-				//String textFieldValue = ;
-				//System.out.println(textFieldValue);
-				driver.insertReport(textField.getText().trim());
-				JOptionPane.showMessageDialog(
-						null, "Η δήλωση σας εστάλει. ","Title", JOptionPane.PLAIN_MESSAGE);
-
-				CloseFrame();
+				try {
+					driver.insertReport(textField.getText().trim());
+					JOptionPane.showMessageDialog(null, "Η δήλωση σας εστάλει.","Title", JOptionPane.PLAIN_MESSAGE);
+					CloseFrame();
+				} catch (DBIOException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage(), "Title", JOptionPane.PLAIN_MESSAGE);
+				}
+				
 			}
+			
 		});
 		btSubmit.setBounds(20, 214, 154, 37);
 		contentPane.add(btSubmit);

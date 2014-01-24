@@ -12,12 +12,8 @@ abstract public class User {
 		String data[][] = null;
 		
 
-			data = RegisterLogin.login(username,password);
+		data = RegisterLogin.login(username,password);
 
-			
-			//JOptionPane.showMessageDialog(null, e.getMessage(),"׃צÜכלב", JOptionPane.PLAIN_MESSAGE);
-			
-			
 		this.uid = Integer.parseInt(data[0][0]);
 		this.username =data[0][1];
 		this.password = data[0][2];

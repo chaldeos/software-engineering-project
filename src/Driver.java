@@ -12,28 +12,21 @@ public class Driver extends User{
 			
 			String bus_res[][] = null;
 			
-			//numberplate den exei anate8ei lewforeio
 			if ((bus_res = getDriversBus(uid)) != null){ //Create bus object
 				//appear numberplate
 				this.bid = Integer.parseInt(bus_res[0][0]);
 				this.numberplate = bus_res[0][1];
 				DriversReport dr = new DriversReport(this);
 				String text = dr.setDriversText();
-				//if (text!=null){
-				//	Report r = new Report(Integer.parseInt(bus_res[0][0]),uid, text);
-				//}
 			}
 		}
-		else{
+		else {
 			throw new RegisterLoginException("Τα στοιχεία σας δεν είναι έγκυρα.");
-			//JOptionPane.showMessageDialog(null, "Τα στοιχεία σας δεν είναι έγκυρα. ","Σφάλμα", JOptionPane.PLAIN_MESSAGE);
-			
 		}
 		
 		
 	}
-	//Validation.validateReport(String data)
-	
+
 	private String[][] getDriversBus(int uid){
 		String bus[][] = null;
 		int bid;
@@ -63,16 +56,12 @@ public class Driver extends User{
 		return this.numberplate;
 	}
 	
-	public void insertReport(String text){
+	public void insertReport(String text) throws DBIOException{
 
-		Database db = new Database();
-		db.mysqlConnect();
-		try {
-			//bus = db.fetchFromDatabase("busses_users","bid","uid=" + uid);
-			//if (bus[0][0] != null){
-				db.insertToDatabase("reports","bid,uid,report_txt",this.bid + "," + this.uid + "," +text);
-		} catch (DBIOException e) {
-			e.printStackTrace();
+		if (Validation.validateReport(text) == null) { // If report is valid then submit it
+			Database db = new Database();
+			db.mysqlConnect();
+			db.insertToDatabase("reports", "bid,uid,report_txt", this.bid + "," + this.uid + "," +text);
 		}
 		
 	}
