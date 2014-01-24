@@ -22,12 +22,12 @@ public class DriversReport extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JButton button;
-
-	
+	public String setDriversText;
+	private Driver driver;
 
 		public void run() {
 			try {
-				DriversReport report = new DriversReport();
+				DriversReport report = new DriversReport(driver);
 				report.setVisible(true);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -37,8 +37,9 @@ public class DriversReport extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public DriversReport() {
+	public DriversReport(final Driver driver) {
 		
+		this.driver = driver;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -56,9 +57,10 @@ public class DriversReport extends JFrame {
 		JButton btSubmit = new JButton("Αποστολή");
 		btSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//send report
-				String textFieldValue = textField.getText().trim();
-				System.out.println(textFieldValue);
+				
+				//String textFieldValue = ;
+				//System.out.println(textFieldValue);
+				driver.insertReport(textField.getText().trim());
 				JOptionPane.showMessageDialog(
 						null, "Η δήλωση σας εστάλει. ","Title", JOptionPane.PLAIN_MESSAGE);
 
@@ -83,8 +85,15 @@ public class DriversReport extends JFrame {
 	    super.dispose();
 	}
 
-	public JTextField getTextField() {
+	public JTextField TextField() {
 		System.out.println(textField);
 		return textField;
 	}
+	public String setDriversText(){
+		String t = (textField.getText().trim());
+		return t;
+		
+	}
+	
+	
 }

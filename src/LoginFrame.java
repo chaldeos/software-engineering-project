@@ -5,9 +5,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -18,13 +20,14 @@ public class LoginFrame extends JFrame {
 	private JTextField textFieldName;
 	private JTextField textFieldPass;
 	private JButton btLogin;
+	private Driver driver;
 
 	/**
 	 * Launch the application.
 	 */
 	public void run() {
 		try {
-			Driver_Frame frame = new Driver_Frame();
+			Driver_Frame frame = new Driver_Frame(driver);
 			frame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -70,9 +73,29 @@ public class LoginFrame extends JFrame {
 		btLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			
-				Driver driver=new Driver(textFieldName.getText().trim(),textFieldPass.getText().trim());
-				CloseFrame();
+				try {
+					driver=new Driver(textFieldName.getText().trim(),textFieldPass.getText().trim());
+					Driver_Frame w = new Driver_Frame(driver);
+					w.setTitle("Οδηγός");
+					w.setVisible(true);
+					//allign at center
+					w.getUsername().setText(textFieldName.getText().trim());
+					if (driver.getBid() != -1){
+						w.getReportButton().setEnabled(true);
+						w.getNplate().setText(driver.getNumberPlate());
+					}
+					else{
+						w.getReportButton().setEnabled(false);
+					}
+					CloseFrame();
+				} catch (RegisterLoginException e) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, e.getMessage(),"Σφάλμα", JOptionPane.PLAIN_MESSAGE);	
+				}
+				
+				
 			}
+	
 		});
 		btLogin.setBounds(151, 206, 143, 34);
 		contentPane.add(btLogin);
@@ -81,5 +104,5 @@ public class LoginFrame extends JFrame {
 	public void CloseFrame(){
 	    super.dispose();
 	}
-
+	
 }

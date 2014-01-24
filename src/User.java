@@ -8,13 +8,16 @@ abstract public class User {
 	protected String username, password, firstname, surname, tin, adress, phone;
 	
 	
-	public User(String username, String password){
+	public User(String username, String password) throws RegisterLoginException{
 		String data[][] = null;
-		try {
+		
+
 			data = RegisterLogin.login(username,password);
-		} catch (RegisterLoginException e) {
-			JOptionPane.showMessageDialog(null, e.getMessage(),"ÓöÜëìá", JOptionPane.PLAIN_MESSAGE);
-		}
+
+			
+			//JOptionPane.showMessageDialog(null, e.getMessage(),"ÓöÜëìá", JOptionPane.PLAIN_MESSAGE);
+			
+			
 		this.uid = Integer.parseInt(data[0][0]);
 		this.username =data[0][1];
 		this.password = data[0][2];
