@@ -62,7 +62,7 @@ public class Manager extends User{
 	public String[][] getBusses(String numberplate) throws DBIOException {
 		Database db = new Database();
 		db.mysqlConnect();
-		return db.fetchFromDatabase("busses", "bid, numberplate, cc, brand", "numberplate=" + numberplate);
+		return db.fetchFromDatabase("busses", "bid, numberplate, cc, brand", "numberplate='" + numberplate + "'");
 	}
 	
 	public void editUserUsername (String username, int uid) throws DBIOException {
