@@ -25,10 +25,44 @@ public class Manager extends User{
 		return db.fetchFromDatabase("fuellings", "fid, bid, litres, km, date, comments", "");
 	}
 	
-	public String[][] getUsers() throws DBIOException {
+	public String[][] getUsers(String firstname, String surname, String tin, int type) throws DBIOException {
+		String condition = "";
+		
+		if (type != 0) {
+			condition += " WHERE type=" + type + " ";
+			
+			if (firstname != null) {
+				condition += "AND firstname='" + firstname + "' ";
+			}
+			
+			if (surname != null) {
+				condition += "AND surname='" + surname + "' ";
+			}
+			
+			if (tin != null) {
+				condition += "AND tin='" + tin + "' ";
+			}
+			
+		}
+		else {
+			throw new DBIOException("Invalid user type");
+		}
+		
 		Database db = new Database();
 		db.mysqlConnect();
-		return db.fetchFromDatabase("users", "uid, username, password, firstname, surname, tin, address, phone, sex, type", "type!=0");
+		return db.fetchFromDatabase("users", "uid, username, password, firstname, surname, tin, address, phone, sex, type", condition);
+	}
+	
+	public String[][] getBusses() throws DBIOException {
+		Database db = new Database();
+		db.mysqlConnect();
+		return db.fetchFromDatabase("busses", "bid, numberplate, cc, brand", "");
+	}
+	
+	public String[][] getBusses(String numberplate) throws DBIOException {
+		Database db = new Database();
+		db.mysqlConnect();
+		return db.fetchFromDatabase("busses", "bid, numberplate, cc, brand", "numberplate=" + numberplate);
 	}
 	
 	public void editUserUsername (String username, int uid) throws DBIOException {
