@@ -21,7 +21,7 @@ public class Database {
     		}
     		
     		// Connect to Database
-    		conn = DriverManager.getConnection("jdbc:mysql://localhost/shoft-eng-proj?" + "user=Manolis&password=qwe/789");
+    		conn = DriverManager.getConnection("jdbc:mysql://localhost/shoft-eng-proj?" + "user=root&password=");
 
     	} catch (SQLException e) {
     		System.out.println("SQLException: " + e.getMessage());
