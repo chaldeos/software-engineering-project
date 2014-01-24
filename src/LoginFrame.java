@@ -43,12 +43,12 @@ public class LoginFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblname = new JLabel("Σύνδεση");
-		lblname.setBounds(66, 110, 79, 14);
+		JLabel lblname = new JLabel("Όνομα Χρήστη");
+		lblname.setBounds(46, 110, 99, 14);
 		contentPane.add(lblname);
 		
-		JLabel lbpass = new JLabel("Όνομα Χρήστη");
-		lbpass.setBounds(66, 160, 79, 14);
+		JLabel lbpass = new JLabel("Συνθηματικό");
+		lbpass.setBounds(46, 160, 99, 14);
 		contentPane.add(lbpass);
 		
 		textFieldName = new JTextField();
@@ -61,7 +61,7 @@ public class LoginFrame extends JFrame {
 		contentPane.add(textFieldPass);
 		textFieldPass.setColumns(10);
 		
-		JLabel connect = new JLabel("Συνθηματικό");
+		JLabel connect = new JLabel("Σύνδεση");
 		connect.setHorizontalAlignment(SwingConstants.CENTER);
 		connect.setBounds(177, 63, 86, 20);
 		contentPane.add(connect);
@@ -71,11 +71,15 @@ public class LoginFrame extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			
 				Driver driver=new Driver(textFieldName.getText().trim(),textFieldPass.getText().trim());
-				
+				CloseFrame();
 			}
 		});
 		btLogin.setBounds(151, 206, 143, 34);
 		contentPane.add(btLogin);
+	}
+	
+	public void CloseFrame(){
+	    super.dispose();
 	}
 
 }
