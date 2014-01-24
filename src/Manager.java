@@ -5,7 +5,7 @@ public class Manager extends User{
 		super(username, password);
 		
 		if (type != 0){
-			throw new RegisterLoginException("Τα στοιχεία σας δεν είναι έγκυρα.");
+			throw new RegisterLoginException("Credentials are not valid.");
 		}
 		
 	}

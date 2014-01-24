@@ -48,11 +48,11 @@ abstract public class LoginFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblname = new JLabel("Όνομα Χρήστη");
+		JLabel lblname = new JLabel("User name");
 		lblname.setBounds(46, 110, 99, 14);
 		contentPane.add(lblname);
 		
-		JLabel lbpass = new JLabel("Συνθηματικό");
+		JLabel lbpass = new JLabel("Password");
 		lbpass.setBounds(46, 160, 99, 14);
 		contentPane.add(lbpass);
 		
@@ -66,7 +66,7 @@ abstract public class LoginFrame extends JFrame {
 		contentPane.add(textFieldPass);
 		textFieldPass.setColumns(10);
 		
-		JLabel connect = new JLabel("Σύνδεση");
+		JLabel connect = new JLabel("Connect");
 		connect.setHorizontalAlignment(SwingConstants.CENTER);
 		connect.setBounds(177, 63, 86, 20);
 		contentPane.add(connect);

@@ -8,14 +8,14 @@ import javax.swing.JOptionPane;
 public class LoginFrameDriver extends LoginFrame{
 	
 	public LoginFrameDriver(){
-	btLogin = new JButton("Είσοδος");
+	btLogin = new JButton("Log in");
 	btLogin.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 		
 			try {
 				driver=new Driver(textFieldName.getText().trim(),textFieldPass.getText().trim());
 				Driver_Frame w = new Driver_Frame(driver);
-				w.setTitle("Οδηγός");
+				w.setTitle("Driver");
 				w.setVisible(true);
 				
 				w.getUsername().setText(textFieldName.getText().trim());
@@ -29,7 +29,7 @@ public class LoginFrameDriver extends LoginFrame{
 				CloseFrame();
 			} catch (RegisterLoginException d) {
 				// TODO Auto-generated catch block
-				JOptionPane.showMessageDialog(null, d.getMessage(),"Σφάλμα", JOptionPane.PLAIN_MESSAGE);	
+				JOptionPane.showMessageDialog(null, d.getMessage(),"Error", JOptionPane.PLAIN_MESSAGE);	
 			}
 			
 			

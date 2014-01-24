@@ -17,44 +17,20 @@ public class Driver_Frame extends JFrame {
 
 	
 	private static final long serialVersionUID = 1L;
-	 
 	private JPanel contentPane;
-	
 	private JButton reportButton;
-	
 	private JLabel nplate;
-	
 	private JLabel user;
-	
 	private Driver driver;
-
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Driver_Frame frame = new Driver_Frame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	 * Create the frame.
-	 */
-	//EventQueue.invokeLater(new Runnable(){
-		public void run() {
-			try {
-				Driver_Frame frame = new Driver_Frame(driver);
-				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+	
+	public void run() {
+		try {
+			Driver_Frame frame = new Driver_Frame(driver);
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+	}
 	
 	//Driver driver = new Driver("odhgos", "121");
 	public Driver_Frame(final Driver driver) {
@@ -68,12 +44,12 @@ public class Driver_Frame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnLogOut = new JButton("Αποσύνδεση");
+		JButton btnLogOut = new JButton("Log out");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
 				LoginFrameManager window = new LoginFrameManager();
-				window.setTitle("Είσοδος χρήστη");
+				window.setTitle("Log in");
 				window.setVisible(true);
 			}
 		});
@@ -93,14 +69,14 @@ public class Driver_Frame extends JFrame {
 		lblDriversname.setBounds(166, 83, 103, 34);
 		contentPane.add(lblDriversname);
 		
-		JButton btReport = new JButton("Δήλωση Βλάβης");
+		JButton btReport = new JButton("Submit fault");
 		this.reportButton = btReport;
 		//btReport.setEnabled(false);
 		btReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DriversReport window = new DriversReport(driver);
 				
-				window.setTitle("Δήλωση Βλάβης");
+				window.setTitle("Submit fault");
 				window.setVisible(true);
 				
 			}
@@ -108,7 +84,7 @@ public class Driver_Frame extends JFrame {
 		btReport.setBounds(268, 175, 156, 76);
 		contentPane.add(btReport);
 		
-		JLabel lbInfo = new JLabel("Τηλ. Κεντρικά 2107777777");
+		JLabel lbInfo = new JLabel("Tel. HQ 2107777777");
 		lbInfo.setBounds(32, 211, 170, 40);
 		contentPane.add(lbInfo);
 	}

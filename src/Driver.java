@@ -22,7 +22,7 @@ public class Driver extends User{
 			}
 		}
 		else {
-			throw new RegisterLoginException("Τα στοιχεία σας δεν είναι έγκυρα.");
+			throw new RegisterLoginException("Credentials are not valid.");
 		}
 		
 		

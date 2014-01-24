@@ -16,10 +16,7 @@ public class ManagerMainscreen extends JFrame {
 	private JPanel contentPane;
 	private Manager manager;
 
-	/**
-	 * Launch the application.
-	 */
-	
+
 	public void run() {
 		try {
 			ManagerMainscreen frame = new ManagerMainscreen(manager);
@@ -28,10 +25,8 @@ public class ManagerMainscreen extends JFrame {
 			e.printStackTrace();
 		}
 	}
-	
-	/**
-	 * Create the frame.
-	 */
+
+
 	public ManagerMainscreen(final Manager manager) {
 		this.manager=manager;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,7 +36,7 @@ public class ManagerMainscreen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 				
-		JLabel lblName = new JLabel(manager.getName());
+		JLabel lblName = new JLabel(manager.getName());		
 		lblName.setBounds(12, 12, 199, 34);
 		contentPane.add(lblName);
 		
@@ -50,7 +45,7 @@ public class ManagerMainscreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
 				ManagerBusesWnd window = new ManagerBusesWnd(manager); 
-				window.setTitle("Οχήματα");
+				window.setTitle("Buses");
 				window.setVisible(true);
 			}
 		});
@@ -62,8 +57,8 @@ public class ManagerMainscreen extends JFrame {
 		btnEmployees.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
-				ManagerEmployeesWnd window = new ManagerEmployeesWnd(); 
-				window.setTitle("Υπάλληλοι");
+				ManagerEmployeesWnd window = new ManagerEmployeesWnd(manager); 
+				window.setTitle("Employees");
 				window.setVisible(true);
 			}
 		});
@@ -77,7 +72,7 @@ public class ManagerMainscreen extends JFrame {
 				CloseFrame();
 				// LoginManager
 				LoginFrameManager window = new LoginFrameManager();
-				window.setTitle("Είσοδος χρήστη");
+				window.setTitle("Log in");
 				window.setVisible(true);
 			}
 		});
@@ -87,6 +82,7 @@ public class ManagerMainscreen extends JFrame {
 		JButton btnStatistics = new JButton("Statistics");
 		btnStatistics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// to be implimened
 			}
 		});
 		btnStatistics.setBounds(301, 130, 117, 60);

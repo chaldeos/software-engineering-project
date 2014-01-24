@@ -11,33 +11,23 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 public class ManagerBusesWnd extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtNumberPlate;
 	private JButton button;
-	public String managerName;
 	private Manager manager;
 	private String arg[][];
-	/**
-	 * Launch the application.
-	 */
-	//public static void main(String[] args) {
-		//EventQueue.invokeLater(new Runnable() {
-		public void run() {
-			try {
-				ManagerBusesWnd frame = new ManagerBusesWnd(manager);
-				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+
+	public void run() {
+		try {
+			ManagerBusesWnd frame = new ManagerBusesWnd(manager);
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		//});
-	//}
-	/**
-	 * Create the frame.
-	 */
+	}
+
 	public ManagerBusesWnd(final Manager manager) {
 		this.manager = manager;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,10 +42,7 @@ public class ManagerBusesWnd extends JFrame {
 		contentPane.add(txtNumberPlate);
 		txtNumberPlate.setColumns(10);
 		
-		managerName="Αλέξανδρος Ευθυμιάδης";
-
-		
-		JLabel lblName = new JLabel(managerName);
+		JLabel lblName = new JLabel(manager.getName());
 		lblName.setBounds(12, 12, 199, 34);
 		contentPane.add(lblName);
 		
@@ -92,7 +79,7 @@ public class ManagerBusesWnd extends JFrame {
 					e1.printStackTrace();
 				}
 				BusInfo window = new BusInfo(manager,arg); 
-				window.setTitle("Οχήματα");
+				window.setTitle("Buses");
 				window.setVisible(true);
 			}
 		});
@@ -101,9 +88,7 @@ public class ManagerBusesWnd extends JFrame {
 		
 		JLabel lblNumberplate = new JLabel("Numberplate");
 		lblNumberplate.setBounds(34, 68, 117, 15);
-		contentPane.add(lblNumberplate);
-		
-		
+		contentPane.add(lblNumberplate);	
 	}
 	
 	public JTextField TextField() {

@@ -21,40 +21,31 @@ public class ManagerEmployeesWnd extends JFrame {
 	private JTextField txtFirstname;
 	private JTextField txtTIN;
 
+	private Manager manager;
+	private String arg[][];
 	
-	public String managerName;
 	public String[] category = {"Driver","Employee"};
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ManagerEmployeesWnd frame = new ManagerEmployeesWnd();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	
+	public void run() {
+		try {
+			ManagerEmployeesWnd frame = new ManagerEmployeesWnd(manager);
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public ManagerEmployeesWnd() {
+	public ManagerEmployeesWnd(final Manager manager) {
+		this.manager = manager;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
-		managerName="Αλέξανδρος Ευθυμιάδης";
+	
 		contentPane.setLayout(null);
-
 		
-		JLabel lblName = new JLabel(managerName);
+		JLabel lblName = new JLabel(manager.getName());
 		lblName.setBounds(33, 15, 168, 15);
 		contentPane.add(lblName);
 		
@@ -95,7 +86,6 @@ public class ManagerEmployeesWnd extends JFrame {
 		JComboBox listCategories = new JComboBox(category);
 		listCategories.setBounds(33, 131, 114, 24);
 		listCategories.setSelectedIndex(0);
-		contentPane.add(listCategories);
-		
+		contentPane.add(listCategories);	
 	}
 }

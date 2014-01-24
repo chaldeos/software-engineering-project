@@ -2,7 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
-//import java.text.DateFormat;
 
 public class MainManager extends JFrame {
 
@@ -11,9 +10,7 @@ public class MainManager extends JFrame {
 	public static void main(String[] args) {
 		
 		LoginFrameManager window = new LoginFrameManager();
-		window.setTitle("Είσοδος χρήστη");
+		window.setTitle("Log in");
 		window.setVisible(true);
-		
 	}
-
 }
