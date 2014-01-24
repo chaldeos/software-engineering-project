@@ -14,13 +14,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class LoginFrame extends JFrame {
+abstract public class LoginFrame extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textFieldName;
-	private JTextField textFieldPass;
-	private JButton btLogin;
-	private Driver driver;
+	protected JPanel contentPane;
+	protected JTextField textFieldName;
+	protected JTextField textFieldPass;
+	protected JButton btLogin;
+	protected Driver driver;
+	protected Manager manager;
+ 
 
 	/**
 	 * Launch the application.
@@ -69,36 +71,7 @@ public class LoginFrame extends JFrame {
 		connect.setBounds(177, 63, 86, 20);
 		contentPane.add(connect);
 		
-		btLogin = new JButton("Είσοδος");
-		btLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			
-				try {
-					driver=new Driver(textFieldName.getText().trim(),textFieldPass.getText().trim());
-					Driver_Frame w = new Driver_Frame(driver);
-					w.setTitle("Οδηγός");
-					w.setVisible(true);
-					//allign at center
-					w.getUsername().setText(textFieldName.getText().trim());
-					if (driver.getBid() != -1){
-						w.getReportButton().setEnabled(true);
-						w.getNplate().setText(driver.getNumberPlate());
-					}
-					else{
-						w.getReportButton().setEnabled(false);
-					}
-					CloseFrame();
-				} catch (RegisterLoginException e) {
-					// TODO Auto-generated catch block
-					JOptionPane.showMessageDialog(null, e.getMessage(),"Σφάλμα", JOptionPane.PLAIN_MESSAGE);	
-				}
-				
-				
-			}
-	
-		});
-		btLogin.setBounds(151, 206, 143, 34);
-		contentPane.add(btLogin);
+		
 	}
 	
 	public void CloseFrame(){
