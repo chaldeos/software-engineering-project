@@ -57,11 +57,15 @@ public class Driver extends User{
 	}
 	
 	public void insertReport(String text) throws DBIOException{
-
-		if (Validation.validateReport(text) == null) { // If report is valid then submit it
+		String errorMsg = "";
+		
+		if ((errorMsg = Validation.validateReport(text)) == null) { // If report is valid then submit it
 			Database db = new Database();
 			db.mysqlConnect();
 			db.insertToDatabase("reports", "bid,uid,report_txt", this.bid + "," + this.uid + "," +text);
+		}
+		else {
+			throw new DBIOException(errorMsg);
 		}
 		
 	}
