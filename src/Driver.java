@@ -36,7 +36,7 @@ public class Driver extends User{
 		db.mysqlConnect();
 		try {
 			bus = db.fetchFromDatabase("busses_users","bid","uid=" + uid);
-			if (bus[0][0] != null){
+			if (bus != null){
 				bid = Integer.parseInt(bus[0][0]);
 				
 				bus = db.fetchFromDatabase("busses","bid, numberplate, cc, brand","bid=" + bid);
