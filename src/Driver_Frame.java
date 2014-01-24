@@ -72,7 +72,7 @@ public class Driver_Frame extends JFrame {
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
-				LoginFrame window = new LoginFrame();
+				LoginFrameManager window = new LoginFrameManager();
 				window.setTitle("Είσοδος χρήστη");
 				window.setVisible(true);
 			}
