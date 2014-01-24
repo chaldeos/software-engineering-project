@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 public class ManagerMainscreen extends JFrame {
 
 	private JPanel contentPane;
-	public String managerName;
 	private Manager manager;
 	private JLabel user;
 
@@ -45,10 +44,8 @@ public class ManagerMainscreen extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		managerName="Αλέξανδρος Ευθυμιάδης";
-		
-		JLabel lblName = new JLabel(managerName);
+				
+		JLabel lblName = new JLabel("Name");
 		this.user = lblName;
 		lblName.setBounds(12, 12, 199, 34);
 		contentPane.add(lblName);
