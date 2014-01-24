@@ -13,7 +13,7 @@ public class Main extends JFrame {
 	public static void main(String[] args) {
 		
 		
-		LoginFrame window = new LoginFrame();
+		LoginFrameManager window = new LoginFrameManager();
 		window.setTitle("Είσοδος χρήστη");
 		window.setVisible(true);
 		
