@@ -16,6 +16,7 @@ import javax.swing.DropMode;
 
 
 public class DriversReport extends JFrame {
+
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -53,14 +54,14 @@ public class DriversReport extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btSubmit = new JButton("Ξ‘Ο€ΞΏΟƒΟ„ΞΏΞ»Ξ®");
+		JButton btSubmit = new JButton("Αποστολή");
 		btSubmit.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
 					driver.insertReport(textField.getText().trim());
-					JOptionPane.showMessageDialog(null, "Ξ— Ξ΄Ξ®Ξ»Ο‰ΟƒΞ® ΟƒΞ±Ο‚ ΞµΟƒΟ„Ξ¬Ξ»ΞµΞΉ.","Title", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Η δήλωση σας εστάλει.","Title", JOptionPane.PLAIN_MESSAGE);
 					CloseFrame();
 				} catch (DBIOException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage(), "Title", JOptionPane.PLAIN_MESSAGE);
@@ -72,7 +73,7 @@ public class DriversReport extends JFrame {
 		btSubmit.setBounds(20, 214, 154, 37);
 		contentPane.add(btSubmit);
 		
-		button = new JButton("Ξ‘ΞΊΟΟΟ‰ΟƒΞ·");
+		button = new JButton("Ακύρωση");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				CloseFrame();
@@ -91,10 +92,11 @@ public class DriversReport extends JFrame {
 		System.out.println(textField);
 		return textField;
 	}
-
 	public String setDriversText(){
 		String t = (textField.getText().trim());
 		return t;
 		
-	}	
+	}
+	
+	
 }
