@@ -21,32 +21,7 @@ public class BusInfo extends JFrame {
 	
 	String arg[][] = null;
 	String[] columnNames = {"Numberplate", "CC", "Brand", "Driven"};	
-	/*
-	Object[][] data = {
-		    {"Kathy", "Smith",
-		     "Snowboarding", new Integer(5), new Boolean(false)},
-		    {"John", "Doe",
-		     "Rowing", new Integer(3), new Boolean(true)},
-		    {"Sue", "Black",
-		     "Knitting", new Integer(2), new Boolean(false)},
-		    {"Jane", "White",
-		     "Speed reading", new Integer(20), new Boolean(true)},
-		    {"Joe", "Brown",
-		     "Pool", new Integer(10), new Boolean(false)}
-		};
-	*/
-	
-	
-	
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
 
-		});
-	}*/
-	
 	public void run() {
 		try {
 			BusInfo frame = new BusInfo(manager, arg);
@@ -62,20 +37,15 @@ public class BusInfo extends JFrame {
 	public BusInfo(final Manager manager, String arg[][]) {
 		this.arg = arg;
 		this.manager = manager;
-		
-		
-		//Object[][] data = 21;
-		
+				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		managerName="Αλέξανδρος Ευθυμιάδης";
-		
-		JLabel lblName = new JLabel(managerName);
+				
+		JLabel lblName = new JLabel(manager.getName());
 		lblName.setBounds(12, 12, 199, 34);
 		contentPane.add(lblName);
 		
@@ -95,8 +65,6 @@ public class BusInfo extends JFrame {
 		table = new JTable(arg, columnNames);
 		table.setBounds(32, 58, 737, 374);
 		contentPane.add(table);
-		
-		
 	}
 	
 	public void CloseFrame(){

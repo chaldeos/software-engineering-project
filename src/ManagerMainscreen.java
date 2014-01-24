@@ -16,21 +16,14 @@ public class ManagerMainscreen extends JFrame {
 	private JPanel contentPane;
 	private Manager manager;
 
-	/**
-	 * Launch the application.
-	 */
-	//public static void main(String[] args) {
-		//EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ManagerMainscreen frame = new ManagerMainscreen(manager);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		//});
-	//}
+	public void run() {
+		try {
+			ManagerMainscreen frame = new ManagerMainscreen(manager);
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	/**
 	 * Create the frame.
@@ -44,7 +37,7 @@ public class ManagerMainscreen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 				
-		JLabel lblName = new JLabel(manager.getName());
+		JLabel lblName = new JLabel(manager.getName());		
 		lblName.setBounds(12, 12, 199, 34);
 		contentPane.add(lblName);
 		
@@ -65,7 +58,7 @@ public class ManagerMainscreen extends JFrame {
 		btnEmployees.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
-				ManagerEmployeesWnd window = new ManagerEmployeesWnd(); 
+				ManagerEmployeesWnd window = new ManagerEmployeesWnd(manager); 
 				window.setTitle("Υπάλληλοι");
 				window.setVisible(true);
 			}
@@ -90,6 +83,7 @@ public class ManagerMainscreen extends JFrame {
 		JButton btnStatistics = new JButton("Statistics");
 		btnStatistics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// to be implimened
 			}
 		});
 		btnStatistics.setBounds(301, 130, 117, 60);
