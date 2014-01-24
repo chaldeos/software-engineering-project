@@ -17,13 +17,13 @@ import javax.swing.JComboBox;
 public class ManagerEmployeesWnd extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtSurname;
-	private JTextField txtName;
-	private JTextField txtAFM;
+	private JTextField txtLastname;
+	private JTextField txtFirstname;
+	private JTextField txtTIN;
 
 	
 	public String managerName;
-	public String[] category = {"Οδηγός","Υπάλληλος"};
+	public String[] category = {"Driver","Employee"};
 	/**
 	 * Launch the application.
 	 */
@@ -58,7 +58,7 @@ public class ManagerEmployeesWnd extends JFrame {
 		lblName.setBounds(33, 15, 168, 15);
 		contentPane.add(lblName);
 		
-		JButton btnLogOut = new JButton("Αποσύνδεση");
+		JButton btnLogOut = new JButton("Log out");
 		btnLogOut.setBounds(315, 10, 121, 25);
 		contentPane.add(btnLogOut);
 		
@@ -70,27 +70,27 @@ public class ManagerEmployeesWnd extends JFrame {
 		});
 		contentPane.add(btnSearch);
 		
-		txtSurname = new JTextField();
-		txtSurname.setForeground(Color.LIGHT_GRAY);
-		txtSurname.setBackground(Color.WHITE);
-		txtSurname.setText("Επώνυμο");
-		txtSurname.setBounds(33, 82, 114, 25);
-		contentPane.add(txtSurname);
-		txtSurname.setColumns(15);
+		txtLastname = new JTextField();
+		txtLastname.setForeground(Color.LIGHT_GRAY);
+		txtLastname.setBackground(Color.WHITE);
+		txtLastname.setText("Lastname");
+		txtLastname.setBounds(33, 82, 114, 25);
+		contentPane.add(txtLastname);
+		txtLastname.setColumns(15);
 		
-		txtName = new JTextField();
-		txtName.setText("Όνομα");
-		txtName.setForeground(Color.LIGHT_GRAY);
-		txtName.setBounds(153, 82, 114, 25);
-		contentPane.add(txtName);
-		txtName.setColumns(15);
+		txtFirstname = new JTextField();
+		txtFirstname.setText("Firstname");
+		txtFirstname.setForeground(Color.LIGHT_GRAY);
+		txtFirstname.setBounds(153, 82, 114, 25);
+		contentPane.add(txtFirstname);
+		txtFirstname.setColumns(15);
 		
-		txtAFM = new JTextField();
-		txtAFM.setText("ΑΦΜ");
-		txtAFM.setForeground(Color.LIGHT_GRAY);
-		txtAFM.setBounds(274, 82, 114, 25);
-		contentPane.add(txtAFM);
-		txtAFM.setColumns(9);
+		txtTIN = new JTextField();
+		txtTIN.setText("TIN");
+		txtTIN.setForeground(Color.LIGHT_GRAY);
+		txtTIN.setBounds(274, 82, 114, 25);
+		contentPane.add(txtTIN);
+		txtTIN.setColumns(9);
 		
 		JComboBox listCategories = new JComboBox(category);
 		listCategories.setBounds(33, 131, 114, 24);
