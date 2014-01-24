@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 public class ManagerBusesWnd extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txtNumberPlate;
 	private JButton button;
 	public String managerName;
 
@@ -23,7 +23,7 @@ public class ManagerBusesWnd extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -35,18 +35,6 @@ public class ManagerBusesWnd extends JFrame {
 			}
 		});
 	}
-	
-	*/
-	
-	public void run() {
-		try {
-			ManagerBusesWnd frame = new ManagerBusesWnd();
-			frame.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
 	/**
 	 * Create the frame.
 	 */
@@ -58,10 +46,10 @@ public class ManagerBusesWnd extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(30, 65, 200, 50);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtNumberPlate = new JTextField();
+		txtNumberPlate.setBounds(30, 73, 219, 25);
+		contentPane.add(txtNumberPlate);
+		txtNumberPlate.setColumns(10);
 		
 		managerName="Αλέξανδρος Ευθυμιάδης";
 
@@ -79,11 +67,11 @@ public class ManagerBusesWnd extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnSearch.setBounds(261, 65, 117, 50);
+		btnSearch.setBounds(261, 73, 117, 25);
 		contentPane.add(btnSearch);
 		
-		button = new JButton("Εμφάνιση όλων");
-		button.setBounds(143, 162, 163, 50);
-		contentPane.add(button);
+		JButton btnListAll = new JButton("Εμφάνιση όλων");
+		btnListAll.setBounds(137, 162, 163, 50);
+		contentPane.add(btnListAll);
 	}
 }

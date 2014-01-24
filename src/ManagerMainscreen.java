@@ -35,8 +35,6 @@ public class ManagerMainscreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	
-	
 	public ManagerMainscreen() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,30 +53,52 @@ public class ManagerMainscreen extends JFrame {
 		JButton btnBuses = new JButton("Οχήματα");
 		btnBuses.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CloseFrame();
 				ManagerBusesWnd window = new ManagerBusesWnd(); 
 				window.setTitle("Οχήματα");
 				window.setVisible(true);
 			}
 		});
-		btnBuses.setBounds(70, 130, 117, 60);
+		btnBuses.setBounds(22, 130, 117, 60);
 		contentPane.add(btnBuses);
 		
 		JButton btnEmployees = new JButton("Υπάλληλοι");
 		
 		btnEmployees.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				CloseFrame();
+				ManagerEmployeesWnd window = new ManagerEmployeesWnd(); 
+				window.setTitle("Υπάλληλοι");
+				window.setVisible(true);
 			}
 		});
 		
-		btnEmployees.setBounds(260, 130, 117, 60);
+		btnEmployees.setBounds(162, 130, 117, 60);
 		contentPane.add(btnEmployees);
 		
 		JButton btnLogOut = new JButton("Αποσύνδεση");
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CloseFrame();
+				LoginFrame window = new LoginFrame();
+				window.setTitle("Είσοδος χρήστη");
+				window.setVisible(true);
+			}
+		});
 		btnLogOut.setBounds(301, 17, 131, 25);
 		contentPane.add(btnLogOut);
 		
+		JButton btnStatistics = new JButton("Στατιστικά");
+		btnStatistics.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnStatistics.setBounds(301, 130, 117, 60);
+		contentPane.add(btnStatistics);
 		
-		
+	}
+	
+	public void CloseFrame(){
+	    super.dispose();
 	}
 }
