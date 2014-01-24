@@ -16,16 +16,11 @@ import java.io.*;
 public class Driver_Frame extends JFrame {
 
 	
-	private static final long serialVersionUID = 1L;
-	 
-	private JPanel contentPane;
-	
+	private static final long serialVersionUID = 1L;	 
+	private JPanel contentPane;	
 	private JButton reportButton;
-	
-	private JLabel nplate;
-	
-	private JLabel user;
-	
+	private JLabel nplate;	
+	private JLabel user;	
 	private Driver driver;
 
 	/**
@@ -68,12 +63,12 @@ public class Driver_Frame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnLogOut = new JButton("Αποσύνδεση");
+		JButton btnLogOut = new JButton("Ξ‘Ο€ΞΏΟƒΟΞ½Ξ΄ΞµΟƒΞ·");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
 				LoginFrame window = new LoginFrame();
-				window.setTitle("Είσοδος χρήστη");
+				window.setTitle("Ξ•Ξ―ΟƒΞΏΞ΄ΞΏΟ‚ Ο‡ΟΞ®ΟƒΟ„Ξ·");
 				window.setVisible(true);
 			}
 		});
@@ -93,14 +88,14 @@ public class Driver_Frame extends JFrame {
 		lblDriversname.setBounds(166, 83, 103, 34);
 		contentPane.add(lblDriversname);
 		
-		JButton btReport = new JButton("Δήλωση Βλάβης");
+		JButton btReport = new JButton("Ξ”Ξ®Ξ»Ο‰ΟƒΞ· Ξ²Ξ»Ξ¬Ξ²Ξ·Ο‚");
 		this.reportButton = btReport;
 		//btReport.setEnabled(false);
 		btReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DriversReport window = new DriversReport(driver);
 				
-				window.setTitle("Δήλωση Βλάβης");
+				window.setTitle("Ξ”Ξ®Ξ»Ο‰ΟƒΞ· Ξ²Ξ»Ξ¬Ξ²Ξ·Ο‚");
 				window.setVisible(true);
 				
 			}
@@ -108,7 +103,7 @@ public class Driver_Frame extends JFrame {
 		btReport.setBounds(268, 175, 156, 76);
 		contentPane.add(btReport);
 		
-		JLabel lbInfo = new JLabel("Τηλ. Κεντρικά 2107777777");
+		JLabel lbInfo = new JLabel("Ξ¤Ξ·Ξ». ΞΊΞµΞ½Ο„ΟΞΉΞΊΞ¬ 2107777777");
 		lbInfo.setBounds(32, 211, 170, 40);
 		contentPane.add(lbInfo);
 	}

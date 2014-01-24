@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 public class Driver extends User{
 	int bid = -1;
 	String numberplate = null;
-	
 	public Driver(String username, String password) throws RegisterLoginException {
 		
 		super(username, password);
@@ -22,10 +21,8 @@ public class Driver extends User{
 			}
 		}
 		else {
-			throw new RegisterLoginException("Τα στοιχεία σας δεν είναι έγκυρα.");
-		}
-		
-		
+			throw new RegisterLoginException("Ξ¤Ξ± ΟƒΟ„ΞΏΞΉΟ‡ΞµΞ―Ξ± ΟƒΞ±Ο‚ Ξ΄ΞµΞ½ ΞµΞ―Ξ½Ξ±ΞΉ Ξ­Ξ³ΞΊΟ…ΟΞ±.");
+		}	
 	}
 
 	private String[][] getDriversBus(int uid){
