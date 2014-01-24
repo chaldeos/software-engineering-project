@@ -19,18 +19,15 @@ public class ManagerMainscreen extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	//public static void main(String[] args) {
-		//EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ManagerMainscreen frame = new ManagerMainscreen(manager);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		//});
-	//}
+	
+	public void run() {
+		try {
+			ManagerMainscreen frame = new ManagerMainscreen(manager);
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	/**
 	 * Create the frame.
