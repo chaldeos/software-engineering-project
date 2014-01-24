@@ -41,7 +41,7 @@ public class RegisterLogin {
 	}
 	
 	// Registers a user to the system
-	public static String register (String username, String password, String firstname, String surname, String tin, String address, String phone, int sex, int type) throws RegisterLoginException {
+	public static void register (String username, String password, String firstname, String surname, String tin, String address, String phone, int sex, int type) throws RegisterLoginException, DBIOException {
 		String[] errors = new String[9];
 		String errorMsg = "";
 		
@@ -65,15 +65,13 @@ public class RegisterLogin {
 		if (errorMsg == "") { // If no errors then register the user
 			Database db = new Database();
 			db.mysqlConnect();
-			try {
-				password = passwordHashGen(password);
-				db.insertToDatabase("users", "username, password, firstname, surname, tin, address, phone, sex, type", username + "," + password + "," + firstname + "," + surname + "," + tin + "," + address + "," + phone + "," + sex + "," + type);
-			} catch (DBIOException e) {
-				e.printStackTrace();
-			}
+
+			password = passwordHashGen(password);
+			db.insertToDatabase("users", "username, password, firstname, surname, tin, address, phone, sex, type", username + "," + password + "," + firstname + "," + surname + "," + tin + "," + address + "," + phone + "," + sex + "," + type);
 		}
-		
-		return errorMsg;
+		else {
+			throw new RegisterLoginException(errorMsg);
+		}
 	}
 
 	// Generates the salted SHA-512 hash of a password

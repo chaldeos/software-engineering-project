@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 public class Driver extends User{
 	int bid = -1;
 	String numberplate = null;
+	
 	public Driver(String username, String password) throws RegisterLoginException {
 		
 		super(username, password);
