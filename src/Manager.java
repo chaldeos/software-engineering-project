@@ -124,4 +124,8 @@ public class Manager extends User{
 		}
 	}
 	
+	public String getName() {
+		return this.firstname + " " + this.surname;
+	}
+	
 }
