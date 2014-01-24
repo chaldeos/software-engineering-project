@@ -16,6 +16,7 @@ public class ManagerMainscreen extends JFrame {
 	private JPanel contentPane;
 	public String managerName;
 	private Manager manager;
+	private JLabel user;
 
 	/**
 	 * Launch the application.
@@ -48,6 +49,7 @@ public class ManagerMainscreen extends JFrame {
 		managerName="Αλέξανδρος Ευθυμιάδης";
 		
 		JLabel lblName = new JLabel(managerName);
+		this.user = lblName;
 		lblName.setBounds(12, 12, 199, 34);
 		contentPane.add(lblName);
 		
@@ -102,5 +104,10 @@ public class ManagerMainscreen extends JFrame {
 	
 	public void CloseFrame(){
 	    super.dispose();
+	}
+	
+	public JLabel getUsername(){
+		
+		return this.user;
 	}
 }
