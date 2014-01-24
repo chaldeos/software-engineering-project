@@ -17,22 +17,27 @@ public class ManagerMainscreen extends JFrame {
 	public String managerName;
 	private Manager manager;
 
-
-	public void run() {
-		try {
-			ManagerMainscreen frame = new ManagerMainscreen(manager);
-			frame.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	/**
+	 * Launch the application.
+	 */
+	//public static void main(String[] args) {
+		//EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ManagerMainscreen frame = new ManagerMainscreen(manager);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		//});
+	//}
 	
 	/**
 	 * Create the frame.
 	 */
-	public ManagerMainscreen(Manager manager) {
-		this.manager = manager;
-		
+	public ManagerMainscreen(final Manager manager) {
+		this.manager=manager;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -40,31 +45,31 @@ public class ManagerMainscreen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		managerName="Ξ‘Ξ»Ξ­ΞΎΞ±Ξ½Ξ΄Ο�ΞΏΟ‚ Ξ•Ο…ΞΈΟ…ΞΌΞΉΞ¬Ξ΄Ξ·Ο‚";
+		managerName="Αλέξανδρος Ευθυμιάδης";
 		
 		JLabel lblName = new JLabel(managerName);
 		lblName.setBounds(12, 12, 199, 34);
 		contentPane.add(lblName);
 		
-		JButton btnBuses = new JButton("Ξ�Ο‡Ξ®ΞΌΞ±Ο„Ξ±");
+		JButton btnBuses = new JButton("Buses");
 		btnBuses.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
-				ManagerBusesWnd window = new ManagerBusesWnd(); 
-				window.setTitle("Ξ�Ο‡Ξ®ΞΌΞ±Ο„Ξ±");
+				ManagerBusesWnd window = new ManagerBusesWnd(manager); 
+				window.setTitle("Οχήματα");
 				window.setVisible(true);
 			}
 		});
 		btnBuses.setBounds(22, 130, 117, 60);
 		contentPane.add(btnBuses);
 		
-		JButton btnEmployees = new JButton("Ξ¥Ο€Ξ¬Ξ»Ξ»Ξ·Ξ»ΞΏΞΉ");
+		JButton btnEmployees = new JButton("Employees");
 		
 		btnEmployees.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
 				ManagerEmployeesWnd window = new ManagerEmployeesWnd(); 
-				window.setTitle("Ξ¥Ο€Ξ¬Ξ»Ξ»Ξ·Ξ»ΞΏΞΉ");
+				window.setTitle("Υπάλληλοι");
 				window.setVisible(true);
 			}
 		});
@@ -72,19 +77,20 @@ public class ManagerMainscreen extends JFrame {
 		btnEmployees.setBounds(162, 130, 117, 60);
 		contentPane.add(btnEmployees);
 		
-		JButton btnLogOut = new JButton("Ξ‘Ο€ΞΏΟƒΟ�Ξ½Ξ΄ΞµΟƒΞ·");
+		JButton btnLogOut = new JButton("Log out");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CloseFrame();
+				// LoginManager
 				LoginFrameManager window = new LoginFrameManager();
-				window.setTitle("Ξ•Ξ―ΟƒΞΏΞ΄ΞΏΟ‚ Ο‡Ο�Ξ®ΟƒΟ„Ξ·");
+				window.setTitle("Είσοδος χρήστη");
 				window.setVisible(true);
 			}
 		});
 		btnLogOut.setBounds(301, 17, 131, 25);
 		contentPane.add(btnLogOut);
 		
-		JButton btnStatistics = new JButton("Ξ£Ο„Ξ±Ο„ΞΉΟƒΟ„ΞΉΞΊΞ¬");
+		JButton btnStatistics = new JButton("Statistics");
 		btnStatistics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
